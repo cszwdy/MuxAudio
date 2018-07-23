@@ -18,6 +18,8 @@
 		2CD166072101E510007BBEDF /* MuxAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD166062101E510007BBEDF /* MuxAudioManager.m */; };
 		2CD166092101E6AB007BBEDF /* clap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2CD166082101E6AB007BBEDF /* clap.mp3 */; };
 		2CD1660B2101E6C7007BBEDF /* foreverLove.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2CD1660A2101E6C7007BBEDF /* foreverLove.mp3 */; };
+		2CDBA5642105686600CF91FB /* activate.pcm in Resources */ = {isa = PBXBuildFile; fileRef = 2CDBA5632105686500CF91FB /* activate.pcm */; };
+		2CDBA56621056E0500CF91FB /* readygo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2CDBA56521056E0500CF91FB /* readygo.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		2CD166062101E510007BBEDF /* MuxAudioManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MuxAudioManager.m; sourceTree = "<group>"; };
 		2CD166082101E6AB007BBEDF /* clap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = clap.mp3; sourceTree = "<group>"; };
 		2CD1660A2101E6C7007BBEDF /* foreverLove.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = foreverLove.mp3; sourceTree = "<group>"; };
+		2CDBA5632105686500CF91FB /* activate.pcm */ = {isa = PBXFileReference; lastKnownFileType = file; path = activate.pcm; sourceTree = "<group>"; };
+		2CDBA56521056E0500CF91FB /* readygo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = readygo.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,8 @@
 		2C21976E2101DE0700AD656C /* MuxAudio */ = {
 			isa = PBXGroup;
 			children = (
+				2CDBA5632105686500CF91FB /* activate.pcm */,
+				2CDBA56521056E0500CF91FB /* readygo.mp3 */,
 				2CD1660A2101E6C7007BBEDF /* foreverLove.mp3 */,
 				2CD166082101E6AB007BBEDF /* clap.mp3 */,
 				2C21976F2101DE0700AD656C /* AppDelegate.h */,
@@ -250,7 +256,9 @@
 				2CD1660B2101E6C7007BBEDF /* foreverLove.mp3 in Resources */,
 				2C2197792101DE0900AD656C /* Assets.xcassets in Resources */,
 				2CD166092101E6AB007BBEDF /* clap.mp3 in Resources */,
+				2CDBA56621056E0500CF91FB /* readygo.mp3 in Resources */,
 				2C2197772101DE0700AD656C /* Main.storyboard in Resources */,
+				2CDBA5642105686600CF91FB /* activate.pcm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +456,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9JC986Y29M;
 				INFOPLIST_FILE = MuxAudio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -464,6 +473,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9JC986Y29M;
 				INFOPLIST_FILE = MuxAudio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
