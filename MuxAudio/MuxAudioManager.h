@@ -35,9 +35,12 @@
 - (void)stopAudioFileAt:(NSString *)path;
 
 
+- (void)stopAll;
+
+
 - (void)accessBufferWithBufferSize:(AVAudioFrameCount)size handler:(void(^)(AVAudioPCMBuffer * _Nonnull buffer))handler;
 
 
-//- (void)record;
+- (void)record;
 
 @end
