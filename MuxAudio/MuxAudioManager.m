@@ -127,6 +127,13 @@
     [_mixNode installTapOnBus:0 bufferSize:bufferSize format:[_mixNode outputFormatForBus:0] block:^(AVAudioPCMBuffer * _Nonnull buffer, AVAudioTime * _Nonnull when) {
         
         NSData *data = [NSData dataWithBytes:buffer.floatChannelData[0] length: buffer.frameLength * buffer.format.streamDescription->mBytesPerFrame / 2];
+        const void *bytes = [data bytes];
+        float *bufferData = buffer.floatChannelData[0];
+        short* pOutShortBuf = (short*)bytes;
+        for(int i=0;i<bufferSize;i++)
+        {
+            pOutShortBuf[i] = (short)(bufferData[i]*32767);
+        }
         
         [wself.mixedPCMBuffers addObject:data];
         NSLog(@"Add mixed buffer.");
