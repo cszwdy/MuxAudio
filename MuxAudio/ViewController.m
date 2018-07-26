@@ -30,9 +30,9 @@
 //    NSString *path1 = [[NSBundle mainBundle] pathForResource:@"readygo" ofType:@"mp3"];
 //    [_audioManager playAudioFileAt:path1 loop:YES];
 //
-    [_audioManager accessBufferWithBufferSize:44100 * 0.12 handler:^(AVAudioPCMBuffer * _Nonnull buffer) {
-        NSLog(@"out put.");
-    }];
+//    [_audioManager accessBufferWithBufferSize:44100 * 0.12 handler:^(AVAudioPCMBuffer * _Nonnull buffer) {
+//        NSLog(@"out put.");
+//    }];
 //
 //
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -106,19 +106,26 @@
 }
 
 - (IBAction)bClick:(id)sender {
-    [self playName:@"clap" loop:YES];
+//    [self playName:@"clap" loop:YES];
+    NSData *data = [_audioManager nextMixedPCMBuffer];
+    if (data != nil) {
+        NSLog(@"Get a data");
+    }
 }
 
 - (IBAction)cClick:(id)sender {
-    [self playName:@"clap" loop:NO];
+//    [self playName:@"clap" loop:NO];
+    [_audioManager beganMixPCMBuffer];
 }
 
 - (IBAction)dClick:(id)sender {
-    [self playName:@"foreverLove" loop:NO];
+//    [self playName:@"foreverLove" loop:NO];
+//    [_audioManager]
+    [_audioManager stopMixPCMBuffer];
 }
 
 - (IBAction)stopClick:(id)sender {
-    [_audioManager stopAll];
+    [_audioManager cleanAll];
 }
 
 - (void)playName:(NSString *)name loop:(BOOL)loop {

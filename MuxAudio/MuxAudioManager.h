@@ -38,9 +38,19 @@
 - (void)stopAll;
 
 
-- (void)accessBufferWithBufferSize:(AVAudioFrameCount)size handler:(void(^)(AVAudioPCMBuffer * _Nonnull buffer))handler;
+/**
+ Release memory,such as, audio file buffer in memory.
+ */
+- (void)cleanAll;
 
 
-- (void)record;
+- (void)beganMixPCMBuffer;
+
+
+- (NSData *__nullable)nextMixedPCMBuffer;
+
+
+- (void)stopMixPCMBuffer;
+
 
 @end

@@ -16,7 +16,8 @@
 @property(nonatomic, strong) NSMutableDictionary<NSString *, AVAudioPlayerNode *> *nodes;
 @property(nonatomic, weak) AVAudioPlayerNode *loopNode;
 
-@property(nonatomic, assign) AVAudioFrameCount bufferSize;
+@property(nonatomic, assign) BOOL installed;
+@property(nonatomic, strong) NSMutableArray<NSData *> *mixedPCMBuffers;
 
 @end
 
@@ -29,10 +30,12 @@
         _engine = [[AVAudioEngine alloc] init];
         _nodes = [@{} mutableCopy];
         _buffers = [@{} mutableCopy];
+        _mixedPCMBuffers = [@[] mutableCopy];
         _mixNode = [[AVAudioMixerNode alloc] init];
         [_engine attachNode:_mixNode];
         [_engine connect:_mixNode to:_engine.mainMixerNode format:nil];
 //        [_engine.mainMixerNode setOutputVolume:0];
+        _installed = NO;
     }
     return self;
 }
@@ -104,17 +107,45 @@
     for (AVAudioPlayerNode *node in _nodes.objectEnumerator) {
         [node stop];
     }
+    
+    [self stopMixPCMBuffer];
+}
+
+- (void)cleanAll {
+    [self stopAll];
+    [_buffers removeAllObjects];
+    [_nodes removeAllObjects];
+    [_mixedPCMBuffers removeAllObjects];
 }
 
 
-- (void)accessBufferWithBufferSize:(AVAudioFrameCount)size handler:(void(^)(AVAudioPCMBuffer * _Nonnull buffer))handler {
-    
-    [_mixNode installTapOnBus:0 bufferSize:size format:[_mixNode outputFormatForBus:0] block:^(AVAudioPCMBuffer * _Nonnull buffer, AVAudioTime * _Nonnull when) {
-        if (handler != nil) {
-            handler(buffer);
-        }
+- (void)beganMixPCMBuffer {
+    if (_installed == YES) {return;}
+    _installed = YES;
+    __weak typeof(self) wself = self;
+    AVAudioFrameCount bufferSize = 44100 * 0.12;
+    [_mixNode installTapOnBus:0 bufferSize:bufferSize format:[_mixNode outputFormatForBus:0] block:^(AVAudioPCMBuffer * _Nonnull buffer, AVAudioTime * _Nonnull when) {
+        
+        NSData *data = [NSData dataWithBytes:buffer.floatChannelData[0] length: buffer.frameLength * buffer.format.streamDescription->mBytesPerFrame / 2];
+        
+        [wself.mixedPCMBuffers addObject:data];
+        NSLog(@"Add mixed buffer.");
     }];
-    
+}
+
+
+- (NSData *__nullable)nextMixedPCMBuffer {
+    NSData *data = _mixedPCMBuffers.firstObject;
+    if (data != nil) {
+        [_mixedPCMBuffers removeObject:data];
+    }
+    return data;
+}
+
+
+- (void)stopMixPCMBuffer {
+    _installed = NO;
+    [_mixNode removeTapOnBus:0];
 }
 
 
