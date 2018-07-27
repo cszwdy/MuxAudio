@@ -15,6 +15,7 @@
 		2C21977F2101DE0900AD656C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C21977E2101DE0900AD656C /* main.m */; };
 		2C2197892101DE0900AD656C /* MuxAudioTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2197882101DE0900AD656C /* MuxAudioTests.m */; };
 		2C2197942101DE0900AD656C /* MuxAudioUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2197932101DE0900AD656C /* MuxAudioUITests.m */; };
+		2CB27677210B021400A3B4AD /* diamond08.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2CB27676210B021400A3B4AD /* diamond08.mp3 */; };
 		2CD166072101E510007BBEDF /* MuxAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD166062101E510007BBEDF /* MuxAudioManager.m */; };
 		2CD166092101E6AB007BBEDF /* clap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2CD166082101E6AB007BBEDF /* clap.mp3 */; };
 		2CD1660B2101E6C7007BBEDF /* foreverLove.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2CD1660A2101E6C7007BBEDF /* foreverLove.mp3 */; };
@@ -56,6 +57,7 @@
 		2C21978F2101DE0900AD656C /* MuxAudioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuxAudioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C2197932101DE0900AD656C /* MuxAudioUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MuxAudioUITests.m; sourceTree = "<group>"; };
 		2C2197952101DE0900AD656C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CB27676210B021400A3B4AD /* diamond08.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = diamond08.mp3; sourceTree = "<group>"; };
 		2CD166052101E510007BBEDF /* MuxAudioManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MuxAudioManager.h; sourceTree = "<group>"; };
 		2CD166062101E510007BBEDF /* MuxAudioManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MuxAudioManager.m; sourceTree = "<group>"; };
 		2CD166082101E6AB007BBEDF /* clap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = clap.mp3; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				2CDBA5632105686500CF91FB /* activate.pcm */,
 				2CDBA56521056E0500CF91FB /* readygo.mp3 */,
 				2CD1660A2101E6C7007BBEDF /* foreverLove.mp3 */,
+				2CB27676210B021400A3B4AD /* diamond08.mp3 */,
 				2CD166082101E6AB007BBEDF /* clap.mp3 */,
 				2C21976F2101DE0700AD656C /* AppDelegate.h */,
 				2C2197702101DE0700AD656C /* AppDelegate.m */,
@@ -259,6 +262,7 @@
 				2CDBA56621056E0500CF91FB /* readygo.mp3 in Resources */,
 				2C2197772101DE0700AD656C /* Main.storyboard in Resources */,
 				2CDBA5642105686600CF91FB /* activate.pcm in Resources */,
+				2CB27677210B021400A3B4AD /* diamond08.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

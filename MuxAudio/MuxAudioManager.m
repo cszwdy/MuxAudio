@@ -13,8 +13,9 @@
 @property(nonatomic, strong) AVAudioEngine *engine;
 @property(nonatomic, strong) AVAudioMixerNode *mixNode;
 @property(nonatomic, strong) NSMutableDictionary<NSString *, AVAudioPCMBuffer *> *buffers;
-@property(nonatomic, strong) NSMutableDictionary<NSString *, AVAudioPlayerNode *> *nodes;
-@property(nonatomic, weak) AVAudioPlayerNode *loopNode;
+//@property(nonatomic, strong) NSMutableDictionary<NSString *, AVAudioPlayerNode *> *nodes;
+@property(nonatomic, strong) NSMutableArray<AVAudioPlayerNode *> *nodesPool;
+//@property(nonatomic, weak) AVAudioPlayerNode *loopNode;
 
 @property(nonatomic, assign) BOOL installed;
 @property(nonatomic, strong) NSMutableArray<NSData *> *mixedPCMBuffers;
@@ -28,7 +29,8 @@
     self = [super init];
     if (self) {
         _engine = [[AVAudioEngine alloc] init];
-        _nodes = [@{} mutableCopy];
+//        _nodes = [@{} mutableCopy];
+        _nodesPool = [@[] mutableCopy];
         _buffers = [@{} mutableCopy];
         _mixedPCMBuffers = [@[] mutableCopy];
         _mixNode = [[AVAudioMixerNode alloc] init];
@@ -44,11 +46,8 @@
 - (BOOL)playAudioFileAt:(NSString *)path loop:(BOOL)loop {
     
     NSString *audioFileID = [path.stringByDeletingPathExtension lastPathComponent]; // Audio ID by audio file name.
-    AVAudioPlayerNode *node = _nodes[audioFileID];
+    AVAudioPlayerNode *node = _nodesPool.firstObject;
     AVAudioPCMBuffer *buffer = _buffers[audioFileID];
-    
-    
-    NSLog(@"node isplaying = %@", @(node.isPlaying));
     
     
     if (buffer == nil) {
@@ -67,16 +66,19 @@
         [_engine attachNode:aNode];
         [_engine connect:aNode to:_mixNode format:buffer.format];
         node = aNode;
-        _nodes[audioFileID] = aNode;
     } else {
         [node stop];
+        [_nodesPool removeObjectAtIndex:0];
         NSLog(@"node exist and isplaying = %@", node.isPlaying ? @"playing" : @"stop" );
     }
 
-    
+    __weak typeof(self) wself = self;
     __weak typeof(node) wNode = node;
     [node scheduleBuffer:buffer atTime:nil options:( loop ? AVAudioPlayerNodeBufferLoops : AVAudioPlayerNodeBufferInterruptsAtLoop) completionHandler:^{ // did play
         NSLog(@"node completed and isPlaying = %@", wNode.isPlaying ? @"YES" : @"NO");
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [wself.nodesPool addObject:wNode];
+        });
     }];
     
     
@@ -102,19 +104,24 @@
 
 - (void)stopAll {
     
-    [_engine stop];
-    
-    for (AVAudioPlayerNode *node in _nodes.objectEnumerator) {
-        [node stop];
-    }
-    
-    [self stopMixPCMBuffer];
+    __weak typeof(self) wself = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [wself.engine stop];
+        
+        for (AVAudioPlayerNode *node in wself.nodesPool) {
+            [node stop];
+        }
+        
+        NSLog(@"nodes = %@", @(wself.nodesPool.count));
+        
+        [wself stopMixPCMBuffer];
+    });
 }
 
 - (void)cleanAll {
     [self stopAll];
     [_buffers removeAllObjects];
-    [_nodes removeAllObjects];
+    [_nodesPool removeAllObjects];
     [_mixedPCMBuffers removeAllObjects];
 }
 

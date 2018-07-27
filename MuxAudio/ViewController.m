@@ -102,15 +102,15 @@
 }
 
 - (IBAction)aClick:(id)sender {
-    [self playName:@"readygo" loop:YES];
+    [self playName:@"diamond08" loop:NO];
 }
 
 - (IBAction)bClick:(id)sender {
-//    [self playName:@"clap" loop:YES];
-    NSData *data = [_audioManager nextMixedPCMBuffer];
-    if (data != nil) {
-        NSLog(@"Get a data");
-    }
+    [self playName:@"clap" loop:NO];
+//    NSData *data = [_audioManager nextMixedPCMBuffer];
+//    if (data != nil) {
+//        NSLog(@"Get a data");
+//    }
 }
 
 - (IBAction)cClick:(id)sender {
@@ -125,7 +125,7 @@
 }
 
 - (IBAction)stopClick:(id)sender {
-    [_audioManager cleanAll];
+    [_audioManager stopAll];
 }
 
 - (void)playName:(NSString *)name loop:(BOOL)loop {
