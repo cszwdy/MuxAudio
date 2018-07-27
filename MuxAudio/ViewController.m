@@ -12,6 +12,7 @@
 @interface ViewController ()
 
 @property(nonatomic, strong) MuxAudioManager *audioManager;
+@property(nonatomic, copy) NSString *audioID;
 
 @end
 
@@ -24,6 +25,7 @@
 //    __weak typeof(self) wself = self;
 //
     self.audioManager = [[MuxAudioManager alloc] init];
+    
 //
 //    NSString *path3 = [[NSBundle mainBundle] pathForResource:@"foreverLove" ofType:@"mp3"];
 //    NSString *path2 = [[NSBundle mainBundle] pathForResource:@"clap" ofType:@"mp3"];
@@ -102,11 +104,11 @@
 }
 
 - (IBAction)aClick:(id)sender {
-    [self playName:@"diamond08" loop:NO];
+    _audioID = [self playName:@"readygo" loop:NO];
 }
 
 - (IBAction)bClick:(id)sender {
-    [self playName:@"clap" loop:NO];
+    _audioID = [self playName:@"clap" loop:NO];
 //    NSData *data = [_audioManager nextMixedPCMBuffer];
 //    if (data != nil) {
 //        NSLog(@"Get a data");
@@ -119,17 +121,15 @@
 }
 
 - (IBAction)dClick:(id)sender {
-//    [self playName:@"foreverLove" loop:NO];
-//    [_audioManager]
-    [_audioManager stopMixPCMBuffer];
-}
-
-- (IBAction)stopClick:(id)sender {
     [_audioManager stopAll];
 }
 
-- (void)playName:(NSString *)name loop:(BOOL)loop {
-    [_audioManager playAudioFileAt:[[NSBundle mainBundle] pathForResource:name ofType:@"mp3"] loop:loop];
+- (IBAction)stopClick:(id)sender {
+    [_audioManager stopAudioFileBy:_audioID];
+}
+
+- (NSString *)playName:(NSString *)name loop:(BOOL)loop {
+    return [_audioManager playAudioFileAt:[[NSBundle mainBundle] pathForResource:name ofType:@"mp3"] loop:loop];
 }
 
 
