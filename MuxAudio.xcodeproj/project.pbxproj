@@ -15,11 +15,58 @@
 		2C21977F2101DE0900AD656C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C21977E2101DE0900AD656C /* main.m */; };
 		2C2197892101DE0900AD656C /* MuxAudioTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2197882101DE0900AD656C /* MuxAudioTests.m */; };
 		2C2197942101DE0900AD656C /* MuxAudioUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2197932101DE0900AD656C /* MuxAudioUITests.m */; };
+		2C79A9BC210FF78800BA119B /* NodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C79A9BB210FF78800BA119B /* NodeView.m */; };
+		2C79A9BE210FF79600BA119B /* NodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C79A9BD210FF79600BA119B /* NodeView.xib */; };
+		2C7A15B7211A9EBC004383A6 /* Game_timeover.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A1587211A9EBC004383A6 /* Game_timeover.mp3 */; };
+		2C7A15B8211A9EBC004383A6 /* Breaktheice_balloonboom.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A1588211A9EBC004383A6 /* Breaktheice_balloonboom.mp3 */; };
+		2C7A15B9211A9EBC004383A6 /* Conveyorbelt_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A1589211A9EBC004383A6 /* Conveyorbelt_bgm.mp3 */; };
+		2C7A15BA211A9EBC004383A6 /* Drawingboard_Countdown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A158A211A9EBC004383A6 /* Drawingboard_Countdown.mp3 */; };
+		2C7A15BB211A9EBC004383A6 /* PlaytheXylophone_b7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A158C211A9EBC004383A6 /* PlaytheXylophone_b7.mp3 */; };
+		2C7A15BC211A9EBC004383A6 /* PlaytheXylophone_b6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A158D211A9EBC004383A6 /* PlaytheXylophone_b6.mp3 */; };
+		2C7A15BD211A9EBC004383A6 /* PlaytheXylophone_b4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A158E211A9EBC004383A6 /* PlaytheXylophone_b4.mp3 */; };
+		2C7A15BE211A9EBC004383A6 /* PlaytheXylophone_b5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A158F211A9EBC004383A6 /* PlaytheXylophone_b5.mp3 */; };
+		2C7A15BF211A9EBC004383A6 /* PlaytheXylophone_b1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A1590211A9EBC004383A6 /* PlaytheXylophone_b1.mp3 */; };
+		2C7A15C0211A9EBC004383A6 /* PlaytheXylophone_b2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A1591211A9EBC004383A6 /* PlaytheXylophone_b2.mp3 */; };
+		2C7A15C1211A9EBC004383A6 /* PlaytheXylophone_b3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A1592211A9EBC004383A6 /* PlaytheXylophone_b3.mp3 */; };
+		2C7A15C2211A9EBC004383A6 /* PlaytheXylophone_b8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A1593211A9EBC004383A6 /* PlaytheXylophone_b8.mp3 */; };
+		2C7A15C3211A9EBC004383A6 /* WhacAMole_hate.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A1594211A9EBC004383A6 /* WhacAMole_hate.mp3 */; };
+		2C7A15C4211A9EBC004383A6 /* Listenandchoose_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A1595211A9EBC004383A6 /* Listenandchoose_bgm.mp3 */; };
+		2C7A15C5211A9EBC004383A6 /* Public_trans.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A1596211A9EBC004383A6 /* Public_trans.mp3 */; };
+		2C7A15C6211A9EBC004383A6 /* Breaktheice_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A1597211A9EBC004383A6 /* Breaktheice_bgm.mp3 */; };
+		2C7A15C7211A9EBC004383A6 /* Card_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A1598211A9EBC004383A6 /* Card_bgm.mp3 */; };
+		2C7A15C8211A9EBC004383A6 /* Public_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A1599211A9EBC004383A6 /* Public_bgm.mp3 */; };
+		2C7A15C9211A9EBC004383A6 /* Public_flower.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A159A211A9EBC004383A6 /* Public_flower.mp3 */; };
+		2C7A15CA211A9EBC004383A6 /* Whatsmissing_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A159B211A9EBC004383A6 /* Whatsmissing_bgm.mp3 */; };
+		2C7A15CB211A9EBC004383A6 /* Pronouncepractice_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A159C211A9EBC004383A6 /* Pronouncepractice_bgm.mp3 */; };
+		2C7A15CC211A9EBC004383A6 /* Diamondboard_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A159D211A9EBC004383A6 /* Diamondboard_bgm.mp3 */; };
+		2C7A15CD211A9EBC004383A6 /* Public_readygo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A159E211A9EBC004383A6 /* Public_readygo.mp3 */; };
+		2C7A15CE211A9EBC004383A6 /* Drawingboard_draw.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A159F211A9EBC004383A6 /* Drawingboard_draw.mp3 */; };
+		2C7A15CF211A9EBC004383A6 /* Vocabulary_expression_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15A0211A9EBC004383A6 /* Vocabulary_expression_1.mp3 */; };
+		2C7A15D0211A9EBC004383A6 /* Drawingboard_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15A1211A9EBC004383A6 /* Drawingboard_bgm.mp3 */; };
+		2C7A15D1211A9EBC004383A6 /* Public_activate.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15A2211A9EBC004383A6 /* Public_activate.mp3 */; };
+		2C7A15D2211A9EBC004383A6 /* Drawingboard_mount.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15A3211A9EBC004383A6 /* Drawingboard_mount.mp3 */; };
+		2C7A15D3211A9EBC004383A6 /* Vocabulary_expression_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15A4211A9EBC004383A6 /* Vocabulary_expression_2.mp3 */; };
+		2C7A15D4211A9EBC004383A6 /* Wordwheel_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15A5211A9EBC004383A6 /* Wordwheel_bgm.mp3 */; };
+		2C7A15D5211A9EBC004383A6 /* Vocabulary_expression_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15A6211A9EBC004383A6 /* Vocabulary_expression_3.mp3 */; };
+		2C7A15D6211A9EBC004383A6 /* WhacAMole_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15A7211A9EBC004383A6 /* WhacAMole_bgm.mp3 */; };
+		2C7A15D7211A9EBC004383A6 /* Public_touch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15A8211A9EBC004383A6 /* Public_touch.mp3 */; };
+		2C7A15D8211A9EBC004383A6 /* Phonics_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15A9211A9EBC004383A6 /* Phonics_bgm.mp3 */; };
+		2C7A15D9211A9EBC004383A6 /* Public_dimanond.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15AA211A9EBC004383A6 /* Public_dimanond.mp3 */; };
+		2C7A15DA211A9EBC004383A6 /* Blowtheballoon_balloonboom.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15AB211A9EBC004383A6 /* Blowtheballoon_balloonboom.mp3 */; };
+		2C7A15DB211A9EBC004383A6 /* Freestlye_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15AC211A9EBC004383A6 /* Freestlye_bgm.mp3 */; };
+		2C7A15DC211A9EBC004383A6 /* Blowtheballoon_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15AD211A9EBC004383A6 /* Blowtheballoon_bgm.mp3 */; };
+		2C7A15DD211A9EBC004383A6 /* Highlowvoice_song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15AE211A9EBC004383A6 /* Highlowvoice_song.mp3 */; };
+		2C7A15DE211A9EBC004383A6 /* Highlowvoice_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15AF211A9EBC004383A6 /* Highlowvoice_bgm.mp3 */; };
+		2C7A15DF211A9EBC004383A6 /* Drawingboard_tipsdraw.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15B0211A9EBC004383A6 /* Drawingboard_tipsdraw.mp3 */; };
+		2C7A15E0211A9EBC004383A6 /* Game_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15B1211A9EBC004383A6 /* Game_bgm.mp3 */; };
+		2C7A15E1211A9EBC004383A6 /* Vocabulary_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15B2211A9EBC004383A6 /* Vocabulary_bgm.mp3 */; };
+		2C7A15E2211A9EBC004383A6 /* PlaytheXylophone_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15B3211A9EBC004383A6 /* PlaytheXylophone_bgm.mp3 */; };
+		2C7A15E3211A9EBC004383A6 /* Game_correct_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15B4211A9EBC004383A6 /* Game_correct_2.mp3 */; };
+		2C7A15E4211A9EBC004383A6 /* Game_correct_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15B5211A9EBC004383A6 /* Game_correct_1.mp3 */; };
+		2C7A15E5211A9EBC004383A6 /* PoketheBubble_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15B6211A9EBC004383A6 /* PoketheBubble_bgm.mp3 */; };
+		2C7A15E7211AA141004383A6 /* foreverLove.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A15E6211AA141004383A6 /* foreverLove.mp3 */; };
 		2CD166072101E510007BBEDF /* MuxAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD166062101E510007BBEDF /* MuxAudioManager.m */; };
-		2CD166092101E6AB007BBEDF /* clap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2CD166082101E6AB007BBEDF /* clap.mp3 */; };
-		2CD1660B2101E6C7007BBEDF /* foreverLove.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2CD1660A2101E6C7007BBEDF /* foreverLove.mp3 */; };
 		2CDBA5642105686600CF91FB /* activate.pcm in Resources */ = {isa = PBXBuildFile; fileRef = 2CDBA5632105686500CF91FB /* activate.pcm */; };
-		2CDBA56621056E0500CF91FB /* readygo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2CDBA56521056E0500CF91FB /* readygo.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,12 +103,60 @@
 		2C21978F2101DE0900AD656C /* MuxAudioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuxAudioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C2197932101DE0900AD656C /* MuxAudioUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MuxAudioUITests.m; sourceTree = "<group>"; };
 		2C2197952101DE0900AD656C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C79A9BA210FF78800BA119B /* NodeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodeView.h; sourceTree = "<group>"; };
+		2C79A9BB210FF78800BA119B /* NodeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeView.m; sourceTree = "<group>"; };
+		2C79A9BD210FF79600BA119B /* NodeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NodeView.xib; sourceTree = "<group>"; };
+		2C7A1587211A9EBC004383A6 /* Game_timeover.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Game_timeover.mp3; sourceTree = "<group>"; };
+		2C7A1588211A9EBC004383A6 /* Breaktheice_balloonboom.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Breaktheice_balloonboom.mp3; sourceTree = "<group>"; };
+		2C7A1589211A9EBC004383A6 /* Conveyorbelt_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Conveyorbelt_bgm.mp3; sourceTree = "<group>"; };
+		2C7A158A211A9EBC004383A6 /* Drawingboard_Countdown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Drawingboard_Countdown.mp3; sourceTree = "<group>"; };
+		2C7A158C211A9EBC004383A6 /* PlaytheXylophone_b7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PlaytheXylophone_b7.mp3; sourceTree = "<group>"; };
+		2C7A158D211A9EBC004383A6 /* PlaytheXylophone_b6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PlaytheXylophone_b6.mp3; sourceTree = "<group>"; };
+		2C7A158E211A9EBC004383A6 /* PlaytheXylophone_b4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PlaytheXylophone_b4.mp3; sourceTree = "<group>"; };
+		2C7A158F211A9EBC004383A6 /* PlaytheXylophone_b5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PlaytheXylophone_b5.mp3; sourceTree = "<group>"; };
+		2C7A1590211A9EBC004383A6 /* PlaytheXylophone_b1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PlaytheXylophone_b1.mp3; sourceTree = "<group>"; };
+		2C7A1591211A9EBC004383A6 /* PlaytheXylophone_b2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PlaytheXylophone_b2.mp3; sourceTree = "<group>"; };
+		2C7A1592211A9EBC004383A6 /* PlaytheXylophone_b3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PlaytheXylophone_b3.mp3; sourceTree = "<group>"; };
+		2C7A1593211A9EBC004383A6 /* PlaytheXylophone_b8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PlaytheXylophone_b8.mp3; sourceTree = "<group>"; };
+		2C7A1594211A9EBC004383A6 /* WhacAMole_hate.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WhacAMole_hate.mp3; sourceTree = "<group>"; };
+		2C7A1595211A9EBC004383A6 /* Listenandchoose_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Listenandchoose_bgm.mp3; sourceTree = "<group>"; };
+		2C7A1596211A9EBC004383A6 /* Public_trans.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Public_trans.mp3; sourceTree = "<group>"; };
+		2C7A1597211A9EBC004383A6 /* Breaktheice_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Breaktheice_bgm.mp3; sourceTree = "<group>"; };
+		2C7A1598211A9EBC004383A6 /* Card_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Card_bgm.mp3; sourceTree = "<group>"; };
+		2C7A1599211A9EBC004383A6 /* Public_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Public_bgm.mp3; sourceTree = "<group>"; };
+		2C7A159A211A9EBC004383A6 /* Public_flower.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Public_flower.mp3; sourceTree = "<group>"; };
+		2C7A159B211A9EBC004383A6 /* Whatsmissing_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Whatsmissing_bgm.mp3; sourceTree = "<group>"; };
+		2C7A159C211A9EBC004383A6 /* Pronouncepractice_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Pronouncepractice_bgm.mp3; sourceTree = "<group>"; };
+		2C7A159D211A9EBC004383A6 /* Diamondboard_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Diamondboard_bgm.mp3; sourceTree = "<group>"; };
+		2C7A159E211A9EBC004383A6 /* Public_readygo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Public_readygo.mp3; sourceTree = "<group>"; };
+		2C7A159F211A9EBC004383A6 /* Drawingboard_draw.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Drawingboard_draw.mp3; sourceTree = "<group>"; };
+		2C7A15A0211A9EBC004383A6 /* Vocabulary_expression_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Vocabulary_expression_1.mp3; sourceTree = "<group>"; };
+		2C7A15A1211A9EBC004383A6 /* Drawingboard_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Drawingboard_bgm.mp3; sourceTree = "<group>"; };
+		2C7A15A2211A9EBC004383A6 /* Public_activate.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Public_activate.mp3; sourceTree = "<group>"; };
+		2C7A15A3211A9EBC004383A6 /* Drawingboard_mount.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Drawingboard_mount.mp3; sourceTree = "<group>"; };
+		2C7A15A4211A9EBC004383A6 /* Vocabulary_expression_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Vocabulary_expression_2.mp3; sourceTree = "<group>"; };
+		2C7A15A5211A9EBC004383A6 /* Wordwheel_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Wordwheel_bgm.mp3; sourceTree = "<group>"; };
+		2C7A15A6211A9EBC004383A6 /* Vocabulary_expression_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Vocabulary_expression_3.mp3; sourceTree = "<group>"; };
+		2C7A15A7211A9EBC004383A6 /* WhacAMole_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WhacAMole_bgm.mp3; sourceTree = "<group>"; };
+		2C7A15A8211A9EBC004383A6 /* Public_touch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Public_touch.mp3; sourceTree = "<group>"; };
+		2C7A15A9211A9EBC004383A6 /* Phonics_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Phonics_bgm.mp3; sourceTree = "<group>"; };
+		2C7A15AA211A9EBC004383A6 /* Public_dimanond.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Public_dimanond.mp3; sourceTree = "<group>"; };
+		2C7A15AB211A9EBC004383A6 /* Blowtheballoon_balloonboom.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Blowtheballoon_balloonboom.mp3; sourceTree = "<group>"; };
+		2C7A15AC211A9EBC004383A6 /* Freestlye_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Freestlye_bgm.mp3; sourceTree = "<group>"; };
+		2C7A15AD211A9EBC004383A6 /* Blowtheballoon_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Blowtheballoon_bgm.mp3; sourceTree = "<group>"; };
+		2C7A15AE211A9EBC004383A6 /* Highlowvoice_song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Highlowvoice_song.mp3; sourceTree = "<group>"; };
+		2C7A15AF211A9EBC004383A6 /* Highlowvoice_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Highlowvoice_bgm.mp3; sourceTree = "<group>"; };
+		2C7A15B0211A9EBC004383A6 /* Drawingboard_tipsdraw.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Drawingboard_tipsdraw.mp3; sourceTree = "<group>"; };
+		2C7A15B1211A9EBC004383A6 /* Game_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Game_bgm.mp3; sourceTree = "<group>"; };
+		2C7A15B2211A9EBC004383A6 /* Vocabulary_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Vocabulary_bgm.mp3; sourceTree = "<group>"; };
+		2C7A15B3211A9EBC004383A6 /* PlaytheXylophone_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PlaytheXylophone_bgm.mp3; sourceTree = "<group>"; };
+		2C7A15B4211A9EBC004383A6 /* Game_correct_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Game_correct_2.mp3; sourceTree = "<group>"; };
+		2C7A15B5211A9EBC004383A6 /* Game_correct_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Game_correct_1.mp3; sourceTree = "<group>"; };
+		2C7A15B6211A9EBC004383A6 /* PoketheBubble_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PoketheBubble_bgm.mp3; sourceTree = "<group>"; };
+		2C7A15E6211AA141004383A6 /* foreverLove.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = foreverLove.mp3; sourceTree = "<group>"; };
 		2CD166052101E510007BBEDF /* MuxAudioManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MuxAudioManager.h; sourceTree = "<group>"; };
 		2CD166062101E510007BBEDF /* MuxAudioManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MuxAudioManager.m; sourceTree = "<group>"; };
-		2CD166082101E6AB007BBEDF /* clap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = clap.mp3; sourceTree = "<group>"; };
-		2CD1660A2101E6C7007BBEDF /* foreverLove.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = foreverLove.mp3; sourceTree = "<group>"; };
 		2CDBA5632105686500CF91FB /* activate.pcm */ = {isa = PBXFileReference; lastKnownFileType = file; path = activate.pcm; sourceTree = "<group>"; };
-		2CDBA56521056E0500CF91FB /* readygo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = readygo.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,15 +208,16 @@
 			isa = PBXGroup;
 			children = (
 				2CDBA5632105686500CF91FB /* activate.pcm */,
-				2CDBA56521056E0500CF91FB /* readygo.mp3 */,
-				2CD1660A2101E6C7007BBEDF /* foreverLove.mp3 */,
-				2CD166082101E6AB007BBEDF /* clap.mp3 */,
+				2C7A1586211A9EBC004383A6 /* 180807Audios */,
 				2C21976F2101DE0700AD656C /* AppDelegate.h */,
 				2C2197702101DE0700AD656C /* AppDelegate.m */,
 				2C2197722101DE0700AD656C /* ViewController.h */,
 				2C2197732101DE0700AD656C /* ViewController.m */,
 				2CD166052101E510007BBEDF /* MuxAudioManager.h */,
 				2CD166062101E510007BBEDF /* MuxAudioManager.m */,
+				2C79A9BA210FF78800BA119B /* NodeView.h */,
+				2C79A9BB210FF78800BA119B /* NodeView.m */,
+				2C79A9BD210FF79600BA119B /* NodeView.xib */,
 				2C2197752101DE0700AD656C /* Main.storyboard */,
 				2C2197782101DE0900AD656C /* Assets.xcassets */,
 				2C21977A2101DE0900AD656C /* LaunchScreen.storyboard */,
@@ -147,6 +243,69 @@
 				2C2197952101DE0900AD656C /* Info.plist */,
 			);
 			path = MuxAudioUITests;
+			sourceTree = "<group>";
+		};
+		2C7A1586211A9EBC004383A6 /* 180807Audios */ = {
+			isa = PBXGroup;
+			children = (
+				2C7A15E6211AA141004383A6 /* foreverLove.mp3 */,
+				2C7A1587211A9EBC004383A6 /* Game_timeover.mp3 */,
+				2C7A1588211A9EBC004383A6 /* Breaktheice_balloonboom.mp3 */,
+				2C7A1589211A9EBC004383A6 /* Conveyorbelt_bgm.mp3 */,
+				2C7A158A211A9EBC004383A6 /* Drawingboard_Countdown.mp3 */,
+				2C7A158B211A9EBC004383A6 /* 180807PlaytheXylophone */,
+				2C7A1594211A9EBC004383A6 /* WhacAMole_hate.mp3 */,
+				2C7A1595211A9EBC004383A6 /* Listenandchoose_bgm.mp3 */,
+				2C7A1596211A9EBC004383A6 /* Public_trans.mp3 */,
+				2C7A1597211A9EBC004383A6 /* Breaktheice_bgm.mp3 */,
+				2C7A1598211A9EBC004383A6 /* Card_bgm.mp3 */,
+				2C7A1599211A9EBC004383A6 /* Public_bgm.mp3 */,
+				2C7A159A211A9EBC004383A6 /* Public_flower.mp3 */,
+				2C7A159B211A9EBC004383A6 /* Whatsmissing_bgm.mp3 */,
+				2C7A159C211A9EBC004383A6 /* Pronouncepractice_bgm.mp3 */,
+				2C7A159D211A9EBC004383A6 /* Diamondboard_bgm.mp3 */,
+				2C7A159E211A9EBC004383A6 /* Public_readygo.mp3 */,
+				2C7A159F211A9EBC004383A6 /* Drawingboard_draw.mp3 */,
+				2C7A15A0211A9EBC004383A6 /* Vocabulary_expression_1.mp3 */,
+				2C7A15A1211A9EBC004383A6 /* Drawingboard_bgm.mp3 */,
+				2C7A15A2211A9EBC004383A6 /* Public_activate.mp3 */,
+				2C7A15A3211A9EBC004383A6 /* Drawingboard_mount.mp3 */,
+				2C7A15A4211A9EBC004383A6 /* Vocabulary_expression_2.mp3 */,
+				2C7A15A5211A9EBC004383A6 /* Wordwheel_bgm.mp3 */,
+				2C7A15A6211A9EBC004383A6 /* Vocabulary_expression_3.mp3 */,
+				2C7A15A7211A9EBC004383A6 /* WhacAMole_bgm.mp3 */,
+				2C7A15A8211A9EBC004383A6 /* Public_touch.mp3 */,
+				2C7A15A9211A9EBC004383A6 /* Phonics_bgm.mp3 */,
+				2C7A15AA211A9EBC004383A6 /* Public_dimanond.mp3 */,
+				2C7A15AB211A9EBC004383A6 /* Blowtheballoon_balloonboom.mp3 */,
+				2C7A15AC211A9EBC004383A6 /* Freestlye_bgm.mp3 */,
+				2C7A15AD211A9EBC004383A6 /* Blowtheballoon_bgm.mp3 */,
+				2C7A15AE211A9EBC004383A6 /* Highlowvoice_song.mp3 */,
+				2C7A15AF211A9EBC004383A6 /* Highlowvoice_bgm.mp3 */,
+				2C7A15B0211A9EBC004383A6 /* Drawingboard_tipsdraw.mp3 */,
+				2C7A15B1211A9EBC004383A6 /* Game_bgm.mp3 */,
+				2C7A15B2211A9EBC004383A6 /* Vocabulary_bgm.mp3 */,
+				2C7A15B3211A9EBC004383A6 /* PlaytheXylophone_bgm.mp3 */,
+				2C7A15B4211A9EBC004383A6 /* Game_correct_2.mp3 */,
+				2C7A15B5211A9EBC004383A6 /* Game_correct_1.mp3 */,
+				2C7A15B6211A9EBC004383A6 /* PoketheBubble_bgm.mp3 */,
+			);
+			path = 180807Audios;
+			sourceTree = "<group>";
+		};
+		2C7A158B211A9EBC004383A6 /* 180807PlaytheXylophone */ = {
+			isa = PBXGroup;
+			children = (
+				2C7A158C211A9EBC004383A6 /* PlaytheXylophone_b7.mp3 */,
+				2C7A158D211A9EBC004383A6 /* PlaytheXylophone_b6.mp3 */,
+				2C7A158E211A9EBC004383A6 /* PlaytheXylophone_b4.mp3 */,
+				2C7A158F211A9EBC004383A6 /* PlaytheXylophone_b5.mp3 */,
+				2C7A1590211A9EBC004383A6 /* PlaytheXylophone_b1.mp3 */,
+				2C7A1591211A9EBC004383A6 /* PlaytheXylophone_b2.mp3 */,
+				2C7A1592211A9EBC004383A6 /* PlaytheXylophone_b3.mp3 */,
+				2C7A1593211A9EBC004383A6 /* PlaytheXylophone_b8.mp3 */,
+			);
+			path = 180807PlaytheXylophone;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,13 +411,59 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C7A15D1211A9EBC004383A6 /* Public_activate.mp3 in Resources */,
+				2C7A15CF211A9EBC004383A6 /* Vocabulary_expression_1.mp3 in Resources */,
+				2C7A15BE211A9EBC004383A6 /* PlaytheXylophone_b5.mp3 in Resources */,
+				2C7A15DC211A9EBC004383A6 /* Blowtheballoon_bgm.mp3 in Resources */,
+				2C7A15C7211A9EBC004383A6 /* Card_bgm.mp3 in Resources */,
 				2C21977C2101DE0900AD656C /* LaunchScreen.storyboard in Resources */,
-				2CD1660B2101E6C7007BBEDF /* foreverLove.mp3 in Resources */,
+				2C7A15C4211A9EBC004383A6 /* Listenandchoose_bgm.mp3 in Resources */,
+				2C7A15D0211A9EBC004383A6 /* Drawingboard_bgm.mp3 in Resources */,
+				2C7A15D8211A9EBC004383A6 /* Phonics_bgm.mp3 in Resources */,
 				2C2197792101DE0900AD656C /* Assets.xcassets in Resources */,
-				2CD166092101E6AB007BBEDF /* clap.mp3 in Resources */,
-				2CDBA56621056E0500CF91FB /* readygo.mp3 in Resources */,
+				2C7A15D9211A9EBC004383A6 /* Public_dimanond.mp3 in Resources */,
+				2C7A15BB211A9EBC004383A6 /* PlaytheXylophone_b7.mp3 in Resources */,
+				2C7A15BD211A9EBC004383A6 /* PlaytheXylophone_b4.mp3 in Resources */,
+				2C7A15DA211A9EBC004383A6 /* Blowtheballoon_balloonboom.mp3 in Resources */,
+				2C7A15E0211A9EBC004383A6 /* Game_bgm.mp3 in Resources */,
+				2C7A15E4211A9EBC004383A6 /* Game_correct_1.mp3 in Resources */,
+				2C7A15DB211A9EBC004383A6 /* Freestlye_bgm.mp3 in Resources */,
+				2C7A15E2211A9EBC004383A6 /* PlaytheXylophone_bgm.mp3 in Resources */,
 				2C2197772101DE0700AD656C /* Main.storyboard in Resources */,
+				2C7A15C6211A9EBC004383A6 /* Breaktheice_bgm.mp3 in Resources */,
+				2C7A15C1211A9EBC004383A6 /* PlaytheXylophone_b3.mp3 in Resources */,
+				2C7A15B9211A9EBC004383A6 /* Conveyorbelt_bgm.mp3 in Resources */,
+				2C7A15D2211A9EBC004383A6 /* Drawingboard_mount.mp3 in Resources */,
+				2C7A15CC211A9EBC004383A6 /* Diamondboard_bgm.mp3 in Resources */,
+				2C7A15DE211A9EBC004383A6 /* Highlowvoice_bgm.mp3 in Resources */,
+				2C7A15C8211A9EBC004383A6 /* Public_bgm.mp3 in Resources */,
+				2C7A15C3211A9EBC004383A6 /* WhacAMole_hate.mp3 in Resources */,
+				2C7A15D5211A9EBC004383A6 /* Vocabulary_expression_3.mp3 in Resources */,
+				2C7A15B7211A9EBC004383A6 /* Game_timeover.mp3 in Resources */,
 				2CDBA5642105686600CF91FB /* activate.pcm in Resources */,
+				2C7A15D6211A9EBC004383A6 /* WhacAMole_bgm.mp3 in Resources */,
+				2C7A15E1211A9EBC004383A6 /* Vocabulary_bgm.mp3 in Resources */,
+				2C7A15DF211A9EBC004383A6 /* Drawingboard_tipsdraw.mp3 in Resources */,
+				2C7A15C5211A9EBC004383A6 /* Public_trans.mp3 in Resources */,
+				2C7A15D7211A9EBC004383A6 /* Public_touch.mp3 in Resources */,
+				2C79A9BE210FF79600BA119B /* NodeView.xib in Resources */,
+				2C7A15CE211A9EBC004383A6 /* Drawingboard_draw.mp3 in Resources */,
+				2C7A15B8211A9EBC004383A6 /* Breaktheice_balloonboom.mp3 in Resources */,
+				2C7A15BA211A9EBC004383A6 /* Drawingboard_Countdown.mp3 in Resources */,
+				2C7A15C0211A9EBC004383A6 /* PlaytheXylophone_b2.mp3 in Resources */,
+				2C7A15E5211A9EBC004383A6 /* PoketheBubble_bgm.mp3 in Resources */,
+				2C7A15D4211A9EBC004383A6 /* Wordwheel_bgm.mp3 in Resources */,
+				2C7A15CB211A9EBC004383A6 /* Pronouncepractice_bgm.mp3 in Resources */,
+				2C7A15C9211A9EBC004383A6 /* Public_flower.mp3 in Resources */,
+				2C7A15BF211A9EBC004383A6 /* PlaytheXylophone_b1.mp3 in Resources */,
+				2C7A15BC211A9EBC004383A6 /* PlaytheXylophone_b6.mp3 in Resources */,
+				2C7A15CD211A9EBC004383A6 /* Public_readygo.mp3 in Resources */,
+				2C7A15D3211A9EBC004383A6 /* Vocabulary_expression_2.mp3 in Resources */,
+				2C7A15E3211A9EBC004383A6 /* Game_correct_2.mp3 in Resources */,
+				2C7A15DD211A9EBC004383A6 /* Highlowvoice_song.mp3 in Resources */,
+				2C7A15E7211AA141004383A6 /* foreverLove.mp3 in Resources */,
+				2C7A15C2211A9EBC004383A6 /* PlaytheXylophone_b8.mp3 in Resources */,
+				2C7A15CA211A9EBC004383A6 /* Whatsmissing_bgm.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C2197742101DE0700AD656C /* ViewController.m in Sources */,
+				2C79A9BC210FF78800BA119B /* NodeView.m in Sources */,
 				2C21977F2101DE0900AD656C /* main.m in Sources */,
 				2C2197712101DE0700AD656C /* AppDelegate.m in Sources */,
 				2CD166072101E510007BBEDF /* MuxAudioManager.m in Sources */,

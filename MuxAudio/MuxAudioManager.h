@@ -24,15 +24,15 @@
  @param path The local audio file path.
  @param loop Whether does the audio play with loop. PS: There is only one at most that a loop audio to play.
  */
-- (BOOL)playAudioFileAt:(NSString *)path loop:(BOOL)loop;
+- (NSString *)playAudioFileAt:(NSString *)path loop:(BOOL)loop;
 
 
 /**
  Stop the specifical audio.
 
- @param path The local audio file path.
+ @param audioID The local audio file path.
  */
-- (void)stopAudioFileAt:(NSString *)path;
+- (void)stopAudioFileByAudioID:(NSString *)audioID;
 
 
 - (void)stopAll;
