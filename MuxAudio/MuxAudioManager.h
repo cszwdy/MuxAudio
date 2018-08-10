@@ -32,7 +32,7 @@
 
  @param audioID The local audio file path.
  */
-- (void)stopAudioFileBy:(NSString *)audioID;
+- (void)stopAudioFileByAudioID:(NSString *)audioID;
 
 
 - (void)stopAll;

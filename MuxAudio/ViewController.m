@@ -9,10 +9,13 @@
 #import "ViewController.h"
 #import "MuxAudioManager.h"
 
-@interface ViewController ()
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property(nonatomic, strong) MuxAudioManager *audioManager;
-@property(nonatomic, copy) NSString *audioID;
+@property (strong, nonatomic) MuxAudioManager *audioManager;
+@property (copy, nonatomic) NSString *audioID;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray<NSString *> *items;
+@property (strong, nonatomic) dispatch_queue_t queue;
 
 @end
 
@@ -20,125 +23,79 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    
-//    __weak typeof(self) wself = self;
-//
+    self.queue = dispatch_queue_create("ccc", DISPATCH_QUEUE_SERIAL);
     self.audioManager = [[MuxAudioManager alloc] init];
+    _items = @[
+               @"foreverLove",
+               @"Diamondboard_bgm",
+               @"Breaktheice_balloonboom",
+               @"Public_dimanond",
+               @"PlaytheXylophone_b1",
+               @"PlaytheXylophone_b2",
+               @"PlaytheXylophone_b3",
+               @"PlaytheXylophone_b4",
+               @"PlaytheXylophone_b5",
+               @"PlaytheXylophone_b6",
+               @"PlaytheXylophone_b7",
+               @"PlaytheXylophone_b8",
+               ];
     
-//
-//    NSString *path3 = [[NSBundle mainBundle] pathForResource:@"foreverLove" ofType:@"mp3"];
-//    NSString *path2 = [[NSBundle mainBundle] pathForResource:@"clap" ofType:@"mp3"];
-//    NSString *path1 = [[NSBundle mainBundle] pathForResource:@"readygo" ofType:@"mp3"];
-//    [_audioManager playAudioFileAt:path1 loop:YES];
-//
-//    [_audioManager accessBufferWithBufferSize:44100 * 0.12 handler:^(AVAudioPCMBuffer * _Nonnull buffer) {
-//        NSLog(@"out put.");
-//    }];
-//
-//
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [wself.audioManager playAudioFileAt:path1 loop:YES];
-//    });
-//
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        NSLog(@"stop all.");
-//        [wself.audioManager stopAll];
-//    });
-//
-//
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [wself.audioManager playAudioFileAt:path3 loop:NO];
-//    });
-//
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [wself.audioManager playAudioFileAt:path2 loop:YES];
-//    });
-//
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(9 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [wself.audioManager playAudioFileAt:path1 loop:NO];
-//    });
-    
-//    NSURL *url = [NSURL URLWithString:[NSTemporaryDirectory() stringByAppendingString:@"mixerOutput.caf"]];
-//    [_audioManager accessBufferWithBufferSize:888 handler:nil];
-//    [_audioManager record];
-//
-//    NSLog(@"record path = %@", url.path);
-    
-    
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        NSString *path = [[NSBundle mainBundle] pathForResource:@"readygo" ofType:@"mp3"];
-//        [wself.audioManager playAudioFileAt:path loop:NO];
-//
-//    });
-//
-//
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        NSString *path = [[NSBundle mainBundle] pathForResource:@"readygo" ofType:@"mp3"];
-//        [wself.audioManager playAudioFileAt:path loop:NO];
-//
-//    });
-//
-//
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        NSString *path = [[NSBundle mainBundle] pathForResource:@"clap" ofType:@"mp3"];
-//        [wself.audioManager playAudioFileAt:path loop:YES];
-//
-//    });
-//
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        NSString *path = [[NSBundle mainBundle] pathForResource:@"clap" ofType:@"mp3"];
-//        [wself.audioManager stopAudioFileAt:path];
-//
-//    });
-//
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(12.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        NSString *path = [[NSBundle mainBundle] pathForResource:@"clap" ofType:@"mp3"];
-//        [wself.audioManager playAudioFileAt:path loop:YES];
-//
-//        [wself.audioManager accessBufferWithBufferSize:4096 handler:^(AVAudioPCMBuffer * _Nonnull buffer) {
-//            NSLog(@"get buffer length = %@", @(buffer.frameCapacity));
-//        }];
-//    });
-    
-}
-
-- (IBAction)aClick:(id)sender {
-    _audioID = [self playName:@"readygo" loop:NO];
-}
-
-- (IBAction)bClick:(id)sender {
-    _audioID = [self playName:@"clap" loop:NO];
-//    NSData *data = [_audioManager nextMixedPCMBuffer];
-//    if (data != nil) {
-//        NSLog(@"Get a data");
-//    }
-}
-
-- (IBAction)cClick:(id)sender {
-//    [self playName:@"clap" loop:NO];
     [_audioManager beganMixPCMBuffer];
 }
 
-- (IBAction)dClick:(id)sender {
+- (void)playByName:(NSString *)name loop:(BOOL)loop {
+    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"mp3"];
+    
+    __weak typeof(self) wself = self;
+    
+    dispatch_queue_t globalDispatchQueueHight = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(self.queue, ^{
+        [wself.audioManager playAudioFileAt:path loop:loop];
+    });
+}
+- (IBAction)stop:(id)sender {
     [_audioManager stopAll];
+    [self playByName:@"Diamondboard_bgm" loop:YES];
 }
 
-- (IBAction)stopClick:(id)sender {
-    [_audioManager stopAudioFileBy:_audioID];
+- (IBAction)trash:(id)sender {
+    [_audioManager cleanAll];
 }
 
-- (NSString *)playName:(NSString *)name loop:(BOOL)loop {
-    return [_audioManager playAudioFileAt:[[NSBundle mainBundle] pathForResource:name ofType:@"mp3"] loop:loop];
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return _items.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    NSString *name = _items[indexPath.item];
+    cell.textLabel.text = name;
+    
+    return cell;
 }
 
 
+#pragma mark - UITableViewDelegate
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDate *now1 = [NSDate date];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    NSString *name = _items[indexPath.item];
+    
+    if (indexPath.item == 1) {
+      [self playByName:name loop: YES];
+        [self playByName:_items[indexPath.item+1] loop: NO];
+    } else {
+       [self playByName:name loop: NO];
+    }
+    
+    NSDate *now2 = [NSDate date];
+//    NSLog(@"Prepare to play %@ is %@s",name, @([now2 timeIntervalSinceDate:now1]));
 }
+
 
 
 @end
