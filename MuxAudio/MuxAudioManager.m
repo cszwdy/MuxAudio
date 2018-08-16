@@ -23,6 +23,8 @@
 
 @property(nonatomic, strong) NSCache *cache;
 
+@property(nonatomic, strong) NSMutableData *mixedData;
+
 @end
 
 @implementation MuxAudioManager
@@ -49,6 +51,8 @@
         
         _cache = [[NSCache alloc] init];
         _cache.countLimit = 5;
+        
+        _mixedData = [NSMutableData data];
     }
     return self;
 }
@@ -149,6 +153,20 @@
 
 
 - (void)stopAll {
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMddhhmmss"];
+    NSDate *now = [NSDate date];
+    NSString *str = [formatter stringFromDate:now];
+
+    NSURL *url = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject] URLByAppendingPathComponent:[NSString stringWithFormat:@"mixed_%@.pcm", str]];
+    if ([_mixedData writeToURL:url atomically:YES]) {
+        NSLog(@"Writed success\n\n %@", url);
+    } else {
+        NSLog(@"Write failly");
+    }
+    
+    
     __weak typeof(self) wself = self;
         [wself.engine stop];
         [wself stopMixPCMBuffer];
@@ -170,40 +188,64 @@
     [_mixNode installTapOnBus:0 bufferSize:bufferSize format:[_mixNode outputFormatForBus:0] block:^(AVAudioPCMBuffer * _Nonnull buffer, AVAudioTime * _Nonnull when) {
         NSData *data = [NSData dataWithBytes:buffer.floatChannelData[0] length: buffer.frameLength * buffer.format.streamDescription->mBytesPerFrame / 2];
         
-        /*
-         struct AudioStreamBasicDescription
-         {
-         Float64             mSampleRate;
-         AudioFormatID       mFormatID;
-         AudioFormatFlags    mFormatFlags;
-         UInt32              mBytesPerPacket;
-         UInt32              mFramesPerPacket;
-         UInt32              mBytesPerFrame;
-         UInt32              mChannelsPerFrame;
-         UInt32              mBitsPerChannel;
-         UInt32              mReserved;
-         };
-         */
-        BOOL h = buffer.format.interleaved;
-        NSUInteger i = buffer.stride;
-        Float64 a = buffer.format.streamDescription->mSampleRate;
-        UInt32 b = buffer.format.streamDescription->mBytesPerPacket;
-        UInt32 c = buffer.format.streamDescription->mFramesPerPacket;
-        UInt32 d = buffer.format.streamDescription->mBytesPerFrame;
-        UInt32 e = buffer.format.streamDescription->mChannelsPerFrame;
-        UInt32 f = buffer.format.streamDescription->mBitsPerChannel;
-        UInt32 g = buffer.format.streamDescription->mReserved;
-        NSLog(@"\ninterleaved = %@,\nstride = %@,\nSampleRate = %@,\n mBytesPerPacket = %@,\n mFramesPerPacket = %@,\n mBytesPerFrame = %@,\n mChannelsPerFrame = %@,\n mBitsPerChannel = %@,\n mReserved = %@",@(h),@(i),@(a),@(b),@(c),@(d),@(e),@(f),@(g));
+//        NSData *aaa = [NSData dataWithBytesNoCopy:buffer.floatChannelData[0] length:buffer.frameLength * buffer.format.streamDescription->mBytesPerFrame];
+//        /*
+//         struct AudioStreamBasicDescription
+//         {
+//         Float64             mSampleRate;
+//         AudioFormatID       mFormatID;
+//         AudioFormatFlags    mFormatFlags;
+//         UInt32              mBytesPerPacket;
+//         UInt32              mFramesPerPacket;
+//         UInt32              mBytesPerFrame;
+//         UInt32              mChannelsPerFrame;
+//         UInt32              mBitsPerChannel;
+//         UInt32              mReserved;
+//         };
+//         */
+//        BOOL h = buffer.format.interleaved;
+//        NSUInteger i = buffer.stride;
+//        Float64 a = buffer.format.streamDescription->mSampleRate;
+//        UInt32 b = buffer.format.streamDescription->mBytesPerPacket;
+//        UInt32 c = buffer.format.streamDescription->mFramesPerPacket;
+//        UInt32 d = buffer.format.streamDescription->mBytesPerFrame;
+//        UInt32 e = buffer.format.streamDescription->mChannelsPerFrame;
+//        UInt32 f = buffer.format.streamDescription->mBitsPerChannel;
+//        UInt32 g = buffer.format.streamDescription->mReserved;
+//        NSLog(@"\ninterleaved = %@,\nstride = %@,\nSampleRate = %@,\n mBytesPerPacket = %@,\n mFramesPerPacket = %@,\n mBytesPerFrame = %@,\n mChannelsPerFrame = %@,\n mBitsPerChannel = %@,\n mReserved = %@",@(h),@(i),@(a),@(b),@(c),@(d),@(e),@(f),@(g));
+        
+        float value = 0;
+        
         
         const void *bytes = [data bytes];
         float *bufferData = buffer.floatChannelData[0];
         short* pOutShortBuf = (short*)bytes;
-        for(int i=0;i<bufferSize;i++)
-        {
-            pOutShortBuf[i] = (short)(bufferData[i]*32767);
+        
+        for(int i = 0; i < bufferSize; i += 2) {
+            value += fabsf(buffer.floatChannelData[0][i]);
         }
         
-        [wself.mixedPCMBuffers addObject:data];
+        value = value / (bufferSize / 2);
+        short int db = (short)20*log10f((32767*value));
+        
+        int needGain = (60 - db);
+        
+//        float b = bufferData[i];
+        NSLog(@"value = %f, db = %d, gain = %d, end = %f", value, db, needGain, pow(10, needGain/20.0));
+        
+        for(int i=0;i<bufferSize;i++)
+        {
+//            int32_t f = abs((int32_t)(bufferData[i] * 0.001 * pow(2, 32)));
+//            NSLog(@"b = %f, f = %d, db = %f",bufferData[i], f, 20*log10(f));
+            
+            
+            pOutShortBuf[i] = (short)(bufferData[i]*pow(10, needGain/20.0)*32767);
+        }
+        
+        
+        
+//        [wself.mixedPCMBuffers addObject:data];
+        [wself.mixedData appendData:data];
     }];
 }
 

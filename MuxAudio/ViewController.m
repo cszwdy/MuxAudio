@@ -84,13 +84,13 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     NSString *name = _items[indexPath.item];
-    
-    if (indexPath.item == 1) {
-      [self playByName:name loop: YES];
-        [self playByName:_items[indexPath.item+1] loop: NO];
-    } else {
-       [self playByName:name loop: NO];
-    }
+    [self playByName:name loop: YES];
+//    if (indexPath.item == 1) {
+//      [self playByName:name loop: YES];
+//        [self playByName:_items[indexPath.item+1] loop: NO];
+//    } else {
+//       [self playByName:name loop: NO];
+//    }
     
     NSDate *now2 = [NSDate date];
 //    NSLog(@"Prepare to play %@ is %@s",name, @([now2 timeIntervalSinceDate:now1]));
