@@ -15,8 +15,14 @@
 		2C21977F2101DE0900AD656C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C21977E2101DE0900AD656C /* main.m */; };
 		2C2197892101DE0900AD656C /* MuxAudioTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2197882101DE0900AD656C /* MuxAudioTests.m */; };
 		2C2197942101DE0900AD656C /* MuxAudioUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2197932101DE0900AD656C /* MuxAudioUITests.m */; };
-		2C79A9BC210FF78800BA119B /* NodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C79A9BB210FF78800BA119B /* NodeView.m */; };
-		2C79A9BE210FF79600BA119B /* NodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C79A9BD210FF79600BA119B /* NodeView.xib */; };
+		2C678F642126BAA300692797 /* PlaytheXylophone_b2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C678F5C2126BAA100692797 /* PlaytheXylophone_b2.mp3 */; };
+		2C678F652126BAA300692797 /* PlaytheXylophone_b7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C678F5D2126BAA100692797 /* PlaytheXylophone_b7.mp3 */; };
+		2C678F662126BAA300692797 /* PlaytheXylophone_b8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C678F5E2126BAA100692797 /* PlaytheXylophone_b8.mp3 */; };
+		2C678F672126BAA300692797 /* PlaytheXylophone_b1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C678F5F2126BAA200692797 /* PlaytheXylophone_b1.mp3 */; };
+		2C678F682126BAA300692797 /* PlaytheXylophone_b5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C678F602126BAA200692797 /* PlaytheXylophone_b5.mp3 */; };
+		2C678F692126BAA300692797 /* PlaytheXylophone_b6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C678F612126BAA200692797 /* PlaytheXylophone_b6.mp3 */; };
+		2C678F6A2126BAA300692797 /* PlaytheXylophone_b4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C678F622126BAA300692797 /* PlaytheXylophone_b4.mp3 */; };
+		2C678F6B2126BAA300692797 /* PlaytheXylophone_b3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C678F632126BAA300692797 /* PlaytheXylophone_b3.mp3 */; };
 		2C7A15B7211A9EBC004383A6 /* Game_timeover.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A1587211A9EBC004383A6 /* Game_timeover.mp3 */; };
 		2C7A15B8211A9EBC004383A6 /* Breaktheice_balloonboom.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A1588211A9EBC004383A6 /* Breaktheice_balloonboom.mp3 */; };
 		2C7A15B9211A9EBC004383A6 /* Conveyorbelt_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C7A1589211A9EBC004383A6 /* Conveyorbelt_bgm.mp3 */; };
@@ -103,9 +109,14 @@
 		2C21978F2101DE0900AD656C /* MuxAudioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuxAudioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C2197932101DE0900AD656C /* MuxAudioUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MuxAudioUITests.m; sourceTree = "<group>"; };
 		2C2197952101DE0900AD656C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2C79A9BA210FF78800BA119B /* NodeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodeView.h; sourceTree = "<group>"; };
-		2C79A9BB210FF78800BA119B /* NodeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeView.m; sourceTree = "<group>"; };
-		2C79A9BD210FF79600BA119B /* NodeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NodeView.xib; sourceTree = "<group>"; };
+		2C678F5C2126BAA100692797 /* PlaytheXylophone_b2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PlaytheXylophone_b2.mp3; sourceTree = "<group>"; };
+		2C678F5D2126BAA100692797 /* PlaytheXylophone_b7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PlaytheXylophone_b7.mp3; sourceTree = "<group>"; };
+		2C678F5E2126BAA100692797 /* PlaytheXylophone_b8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PlaytheXylophone_b8.mp3; sourceTree = "<group>"; };
+		2C678F5F2126BAA200692797 /* PlaytheXylophone_b1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PlaytheXylophone_b1.mp3; sourceTree = "<group>"; };
+		2C678F602126BAA200692797 /* PlaytheXylophone_b5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PlaytheXylophone_b5.mp3; sourceTree = "<group>"; };
+		2C678F612126BAA200692797 /* PlaytheXylophone_b6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PlaytheXylophone_b6.mp3; sourceTree = "<group>"; };
+		2C678F622126BAA300692797 /* PlaytheXylophone_b4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PlaytheXylophone_b4.mp3; sourceTree = "<group>"; };
+		2C678F632126BAA300692797 /* PlaytheXylophone_b3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PlaytheXylophone_b3.mp3; sourceTree = "<group>"; };
 		2C7A1587211A9EBC004383A6 /* Game_timeover.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Game_timeover.mp3; sourceTree = "<group>"; };
 		2C7A1588211A9EBC004383A6 /* Breaktheice_balloonboom.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Breaktheice_balloonboom.mp3; sourceTree = "<group>"; };
 		2C7A1589211A9EBC004383A6 /* Conveyorbelt_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Conveyorbelt_bgm.mp3; sourceTree = "<group>"; };
@@ -208,6 +219,14 @@
 			isa = PBXGroup;
 			children = (
 				2CDBA5632105686500CF91FB /* activate.pcm */,
+				2C678F5F2126BAA200692797 /* PlaytheXylophone_b1.mp3 */,
+				2C678F5C2126BAA100692797 /* PlaytheXylophone_b2.mp3 */,
+				2C678F632126BAA300692797 /* PlaytheXylophone_b3.mp3 */,
+				2C678F622126BAA300692797 /* PlaytheXylophone_b4.mp3 */,
+				2C678F602126BAA200692797 /* PlaytheXylophone_b5.mp3 */,
+				2C678F612126BAA200692797 /* PlaytheXylophone_b6.mp3 */,
+				2C678F5D2126BAA100692797 /* PlaytheXylophone_b7.mp3 */,
+				2C678F5E2126BAA100692797 /* PlaytheXylophone_b8.mp3 */,
 				2C7A1586211A9EBC004383A6 /* 180807Audios */,
 				2C21976F2101DE0700AD656C /* AppDelegate.h */,
 				2C2197702101DE0700AD656C /* AppDelegate.m */,
@@ -215,9 +234,6 @@
 				2C2197732101DE0700AD656C /* ViewController.m */,
 				2CD166052101E510007BBEDF /* MuxAudioManager.h */,
 				2CD166062101E510007BBEDF /* MuxAudioManager.m */,
-				2C79A9BA210FF78800BA119B /* NodeView.h */,
-				2C79A9BB210FF78800BA119B /* NodeView.m */,
-				2C79A9BD210FF79600BA119B /* NodeView.xib */,
 				2C2197752101DE0700AD656C /* Main.storyboard */,
 				2C2197782101DE0900AD656C /* Assets.xcassets */,
 				2C21977A2101DE0900AD656C /* LaunchScreen.storyboard */,
@@ -412,9 +428,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C7A15D1211A9EBC004383A6 /* Public_activate.mp3 in Resources */,
+				2C678F6A2126BAA300692797 /* PlaytheXylophone_b4.mp3 in Resources */,
 				2C7A15CF211A9EBC004383A6 /* Vocabulary_expression_1.mp3 in Resources */,
+				2C678F642126BAA300692797 /* PlaytheXylophone_b2.mp3 in Resources */,
 				2C7A15BE211A9EBC004383A6 /* PlaytheXylophone_b5.mp3 in Resources */,
 				2C7A15DC211A9EBC004383A6 /* Blowtheballoon_bgm.mp3 in Resources */,
+				2C678F6B2126BAA300692797 /* PlaytheXylophone_b3.mp3 in Resources */,
 				2C7A15C7211A9EBC004383A6 /* Card_bgm.mp3 in Resources */,
 				2C21977C2101DE0900AD656C /* LaunchScreen.storyboard in Resources */,
 				2C7A15C4211A9EBC004383A6 /* Listenandchoose_bgm.mp3 in Resources */,
@@ -422,12 +441,14 @@
 				2C7A15D8211A9EBC004383A6 /* Phonics_bgm.mp3 in Resources */,
 				2C2197792101DE0900AD656C /* Assets.xcassets in Resources */,
 				2C7A15D9211A9EBC004383A6 /* Public_dimanond.mp3 in Resources */,
+				2C678F672126BAA300692797 /* PlaytheXylophone_b1.mp3 in Resources */,
 				2C7A15BB211A9EBC004383A6 /* PlaytheXylophone_b7.mp3 in Resources */,
 				2C7A15BD211A9EBC004383A6 /* PlaytheXylophone_b4.mp3 in Resources */,
 				2C7A15DA211A9EBC004383A6 /* Blowtheballoon_balloonboom.mp3 in Resources */,
 				2C7A15E0211A9EBC004383A6 /* Game_bgm.mp3 in Resources */,
 				2C7A15E4211A9EBC004383A6 /* Game_correct_1.mp3 in Resources */,
 				2C7A15DB211A9EBC004383A6 /* Freestlye_bgm.mp3 in Resources */,
+				2C678F692126BAA300692797 /* PlaytheXylophone_b6.mp3 in Resources */,
 				2C7A15E2211A9EBC004383A6 /* PlaytheXylophone_bgm.mp3 in Resources */,
 				2C2197772101DE0700AD656C /* Main.storyboard in Resources */,
 				2C7A15C6211A9EBC004383A6 /* Breaktheice_bgm.mp3 in Resources */,
@@ -440,13 +461,14 @@
 				2C7A15C3211A9EBC004383A6 /* WhacAMole_hate.mp3 in Resources */,
 				2C7A15D5211A9EBC004383A6 /* Vocabulary_expression_3.mp3 in Resources */,
 				2C7A15B7211A9EBC004383A6 /* Game_timeover.mp3 in Resources */,
+				2C678F652126BAA300692797 /* PlaytheXylophone_b7.mp3 in Resources */,
+				2C678F662126BAA300692797 /* PlaytheXylophone_b8.mp3 in Resources */,
 				2CDBA5642105686600CF91FB /* activate.pcm in Resources */,
 				2C7A15D6211A9EBC004383A6 /* WhacAMole_bgm.mp3 in Resources */,
 				2C7A15E1211A9EBC004383A6 /* Vocabulary_bgm.mp3 in Resources */,
 				2C7A15DF211A9EBC004383A6 /* Drawingboard_tipsdraw.mp3 in Resources */,
 				2C7A15C5211A9EBC004383A6 /* Public_trans.mp3 in Resources */,
 				2C7A15D7211A9EBC004383A6 /* Public_touch.mp3 in Resources */,
-				2C79A9BE210FF79600BA119B /* NodeView.xib in Resources */,
 				2C7A15CE211A9EBC004383A6 /* Drawingboard_draw.mp3 in Resources */,
 				2C7A15B8211A9EBC004383A6 /* Breaktheice_balloonboom.mp3 in Resources */,
 				2C7A15BA211A9EBC004383A6 /* Drawingboard_Countdown.mp3 in Resources */,
@@ -456,6 +478,7 @@
 				2C7A15CB211A9EBC004383A6 /* Pronouncepractice_bgm.mp3 in Resources */,
 				2C7A15C9211A9EBC004383A6 /* Public_flower.mp3 in Resources */,
 				2C7A15BF211A9EBC004383A6 /* PlaytheXylophone_b1.mp3 in Resources */,
+				2C678F682126BAA300692797 /* PlaytheXylophone_b5.mp3 in Resources */,
 				2C7A15BC211A9EBC004383A6 /* PlaytheXylophone_b6.mp3 in Resources */,
 				2C7A15CD211A9EBC004383A6 /* Public_readygo.mp3 in Resources */,
 				2C7A15D3211A9EBC004383A6 /* Vocabulary_expression_2.mp3 in Resources */,
@@ -489,7 +512,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C2197742101DE0700AD656C /* ViewController.m in Sources */,
-				2C79A9BC210FF78800BA119B /* NodeView.m in Sources */,
 				2C21977F2101DE0900AD656C /* main.m in Sources */,
 				2C2197712101DE0700AD656C /* AppDelegate.m in Sources */,
 				2CD166072101E510007BBEDF /* MuxAudioManager.m in Sources */,

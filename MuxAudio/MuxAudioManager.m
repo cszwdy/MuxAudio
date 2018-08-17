@@ -99,8 +99,11 @@
     
     if (node == nil) {
         AVAudioPlayerNode *aNode = [[AVAudioPlayerNode alloc] init];
+        AVAudioUnitEffect *effect = [self createEffect];
         [_engine attachNode:aNode];
-        [_engine connect:aNode to:_mixNode format:buffer.format];
+        [_engine attachNode:effect];
+        [_engine connect:aNode to:effect format:buffer.format];
+        [_engine connect:effect to:_mixNode format:buffer.format];
         node = aNode;
     } else {
         [_engine connect:node to:_mixNode format:buffer.format];
@@ -239,7 +242,7 @@
 //            NSLog(@"b = %f, f = %d, db = %f",bufferData[i], f, 20*log10(f));
             
             
-            pOutShortBuf[i] = (short)(bufferData[i]*pow(10, needGain/20.0)*32767);
+            pOutShortBuf[i] = (short)(bufferData[i]*32767);
         }
         
         
@@ -262,6 +265,73 @@
 - (void)stopMixPCMBuffer {
     _installed = NO;
     [_mixNode removeTapOnBus:0];
+}
+
+
+
+- (AVAudioUnitEffect *)createEffect {
+    
+    /*
+     typedef struct AudioComponentDescription {
+     OSType              componentType;
+     OSType              componentSubType;
+     OSType              componentManufacturer;
+     UInt32              componentFlags;
+     UInt32              componentFlagsMask;
+     } AudioComponentDescription;
+     */
+    
+    struct AudioComponentDescription d = {kAudioUnitType_Effect, kAudioUnitSubType_DynamicsProcessor, kAudioUnitManufacturer_Apple};
+    AVAudioUnitEffect *effect = [[AVAudioUnitEffect alloc] initWithAudioComponentDescription:d];
+    AudioUnit compressorUnit = effect.audioUnit;
+    
+    /*
+     // Parameters for the AUDynamicsProcessor unit
+     // Note that the dynamics processor does not have fixed compression ratios.
+     // Instead, kDynamicsProcessorParam_HeadRoom adjusts the amount of compression.
+     // Lower kDynamicsProcessorParam_HeadRoom values results in higher compression.
+     // The compression ratio is automatically adjusted to not exceed kDynamicsProcessorParam_Threshold + kDynamicsProcessorParam_HeadRoom values.
+     
+     CF_ENUM(AudioUnitParameterID) {
+     // Global, dB, -40->20, -20
+     kDynamicsProcessorParam_Threshold             = 0,
+     
+     // Global, dB, 0.1->40.0, 5
+     kDynamicsProcessorParam_HeadRoom             = 1,
+     
+     // Global, rate, 1->50.0, 2
+     kDynamicsProcessorParam_ExpansionRatio        = 2,
+     
+     // Global, dB
+     kDynamicsProcessorParam_ExpansionThreshold    = 3,
+     
+     // Global, secs, 0.0001->0.2, 0.001
+     kDynamicsProcessorParam_AttackTime             = 4,
+     
+     // Global, secs, 0.01->3, 0.05
+     kDynamicsProcessorParam_ReleaseTime         = 5,
+     
+     // Global, dB, -40->40, 0
+     kDynamicsProcessorParam_MasterGain             = 6,
+     
+     // Global, dB, read-only parameter
+     kDynamicsProcessorParam_CompressionAmount     = 1000,
+     kDynamicsProcessorParam_InputAmplitude        = 2000,
+     kDynamicsProcessorParam_OutputAmplitude     = 3000
+     };
+     */
+    AudioUnitSetParameter(compressorUnit, kDynamicsProcessorParam_Threshold, kAudioUnitScope_Global, 0, -20, 0);
+    AudioUnitSetParameter(compressorUnit, kDynamicsProcessorParam_HeadRoom, kAudioUnitScope_Global, 0, 1.3, 0);
+    AudioUnitSetParameter(compressorUnit, kDynamicsProcessorParam_ExpansionRatio, kAudioUnitScope_Global, 0, 1.3, 0);
+    AudioUnitSetParameter(compressorUnit, kDynamicsProcessorParam_ExpansionThreshold, kAudioUnitScope_Global, 0, -25, 0);
+    AudioUnitSetParameter(compressorUnit, kDynamicsProcessorParam_AttackTime, kAudioUnitScope_Global, 0, 0.001, 0);
+    AudioUnitSetParameter(compressorUnit, kDynamicsProcessorParam_ReleaseTime, kAudioUnitScope_Global, 0, 0.5, 0);
+    AudioUnitSetParameter(compressorUnit, kDynamicsProcessorParam_MasterGain, kAudioUnitScope_Global, 0, 1.83, 0);
+    
+//    _compressor = effect;
+    
+    return effect;
+    
 }
 
 
