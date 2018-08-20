@@ -116,8 +116,8 @@
     [node scheduleBuffer:buffer atTime:nil options:( loop ? AVAudioPlayerNodeBufferLoops : AVAudioPlayerNodeBufferInterruptsAtLoop) completionHandler:^{ // did play
 //        dispatch_async(dispatch_get_main_queue(), ^{
 //            dispatch_async(wself.queue, ^{
-                [wself.nodesPool addObject:wNode];
-                [wself.playingNodes removeObjectForKey:audioFileID];
+//                [wself.nodesPool addObject:wNode];
+//                [wself.playingNodes removeObjectForKey:audioFileID];
                 NSLog(@"play end. pool = %@, ing = %@", @(wself.nodesPool.count), @(wself.playingNodes.count));
 //            });
 //        });
@@ -135,7 +135,7 @@
     
     [node play];
     
-    _playingNodes[audioFileID] = node;
+//    _playingNodes[audioFileID] = node;
     
     return audioFileID;
 }
@@ -217,24 +217,24 @@
 //        UInt32 g = buffer.format.streamDescription->mReserved;
 //        NSLog(@"\ninterleaved = %@,\nstride = %@,\nSampleRate = %@,\n mBytesPerPacket = %@,\n mFramesPerPacket = %@,\n mBytesPerFrame = %@,\n mChannelsPerFrame = %@,\n mBitsPerChannel = %@,\n mReserved = %@",@(h),@(i),@(a),@(b),@(c),@(d),@(e),@(f),@(g));
         
-        float value = 0;
+//        float value = 0;
         
         
         const void *bytes = [data bytes];
         float *bufferData = buffer.floatChannelData[0];
         short* pOutShortBuf = (short*)bytes;
         
-        for(int i = 0; i < bufferSize; i += 2) {
-            value += fabsf(buffer.floatChannelData[0][i]);
-        }
-        
-        value = value / (bufferSize / 2);
-        short int db = (short)20*log10f((32767*value));
-        
-        int needGain = (60 - db);
-        
-//        float b = bufferData[i];
-        NSLog(@"value = %f, db = %d, gain = %d, end = %f", value, db, needGain, pow(10, needGain/20.0));
+//        for(int i = 0; i < bufferSize; i += 2) {
+//            value += fabsf(buffer.floatChannelData[0][i]);
+//        }
+//
+//        value = value / (bufferSize / 2);
+//        short int db = (short)20*log10f((32767*value));
+//
+//        int needGain = (60 - db);
+//
+////        float b = bufferData[i];
+//        NSLog(@"value = %f, db = %d, gain = %d, end = %f", value, db, needGain, pow(10, needGain/20.0));
         
         for(int i=0;i<bufferSize;i++)
         {
