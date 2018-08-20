@@ -84,7 +84,7 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     NSString *name = _items[indexPath.item];
-    [self playByName:name loop: YES];
+    [self playByName:name loop: indexPath.item % 2 == 0];
 //    if (indexPath.item == 1) {
 //      [self playByName:name loop: YES];
 //        [self playByName:_items[indexPath.item+1] loop: NO];

@@ -14,7 +14,9 @@
 @property(nonatomic, strong) AVAudioMixerNode *mixNode;
 @property(nonatomic, strong) NSMutableDictionary<NSString *, AVAudioPCMBuffer *> *buffers;
 @property(nonatomic, strong) NSMutableDictionary<NSString *, AVAudioPlayerNode *> *playingNodes;
+@property(nonatomic, strong) NSMutableDictionary<NSString *, AVAudioUnitEffect *> *compressingNodes;
 @property(nonatomic, strong) NSMutableArray<AVAudioPlayerNode *> *nodesPool;
+@property(nonatomic, strong) NSMutableArray<AVAudioUnitEffect *> *compressorPool;
 @property(nonatomic, strong) NSDateFormatter *formatter;
 
 @property(nonatomic, assign) BOOL installed;
@@ -35,7 +37,9 @@
     if (self) {
         _engine = [[AVAudioEngine alloc] init];
         _playingNodes = [@{} mutableCopy];
+        _compressingNodes = [@{} mutableCopy];
         _nodesPool = [@[] mutableCopy];
+        _compressorPool = [@[] mutableCopy];
         _buffers = [@{} mutableCopy];
         _mixedPCMBuffers = [@[] mutableCopy];
         _mixNode = [[AVAudioMixerNode alloc] init];
@@ -65,6 +69,7 @@
     NSString *audioFileName = [path.stringByDeletingPathExtension lastPathComponent];
     NSString *audioFileID = [[path.stringByDeletingPathExtension lastPathComponent] stringByAppendingString:timeLocal]; // Audio ID by audio file name.
     AVAudioPlayerNode *node = _nodesPool.firstObject;
+    AVAudioUnitEffect *compresspr = _compressorPool.firstObject;
 //    AVAudioPCMBuffer *buffer = _buffers[audioFileName];
     AVAudioPCMBuffer *buffer = [_cache objectForKey:audioFileName];
     
@@ -97,29 +102,49 @@
         
     }
     
+    if (compresspr == nil) {
+        compresspr = [self createEffect];
+        
+        
+    } else {
+        [_compressorPool removeObjectAtIndex:0];
+    }
+    
     if (node == nil) {
         AVAudioPlayerNode *aNode = [[AVAudioPlayerNode alloc] init];
-        AVAudioUnitEffect *effect = [self createEffect];
-        [_engine attachNode:aNode];
-        [_engine attachNode:effect];
-        [_engine connect:aNode to:effect format:buffer.format];
-        [_engine connect:effect to:_mixNode format:buffer.format];
         node = aNode;
+        
+//        AVAudioUnitEffect *effect = [self createEffect];
+//        [_engine attachNode:aNode];
+//        [_engine attachNode:effect];
+        
+        
     } else {
-        [_engine connect:node to:_mixNode format:buffer.format];
         [_nodesPool removeObjectAtIndex:0];
     }
     
+    
+    [_engine attachNode:compresspr];
+    [_engine attachNode:node];
+    [_engine connect:node to:compresspr format:buffer.format];
+    [_engine connect:compresspr to:_mixNode format:buffer.format];
+//    [_engine connect:compresspr to:_mixNode format:buffer.format];
+    
     __weak typeof(node) wNode = node;
+    __weak typeof(compresspr) wCom = compresspr;
     __weak typeof(self) wself = self;
     
     [node scheduleBuffer:buffer atTime:nil options:( loop ? AVAudioPlayerNodeBufferLoops : AVAudioPlayerNodeBufferInterruptsAtLoop) completionHandler:^{ // did play
 //        dispatch_async(dispatch_get_main_queue(), ^{
-//            dispatch_async(wself.queue, ^{
-//                [wself.nodesPool addObject:wNode];
-//                [wself.playingNodes removeObjectForKey:audioFileID];
+            dispatch_async(wself.queue, ^{
+        [wself.engine detachNode:wNode];
+        [wself.engine detachNode:wCom];
+        [wself.compressorPool addObject:wCom];
+            [wself.nodesPool addObject:wNode];
+            [wself.playingNodes removeObjectForKey:audioFileID];
+        [wself.compressingNodes removeObjectForKey:audioFileID];
                 NSLog(@"play end. pool = %@, ing = %@", @(wself.nodesPool.count), @(wself.playingNodes.count));
-//            });
+            });
 //        });
     }];
     
@@ -135,7 +160,8 @@
     
     [node play];
     
-//    _playingNodes[audioFileID] = node;
+    _playingNodes[audioFileID] = node;
+    _compressingNodes[audioFileID] = compresspr;
     
     return audioFileID;
 }
