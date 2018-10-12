@@ -53,4 +53,6 @@
 - (void)stopMixPCMBuffer;
 
 
+- (void) method;
+
 @end

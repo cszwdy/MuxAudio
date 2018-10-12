@@ -8,6 +8,8 @@
 
 #import "MuxAudioManager.h"
 
+static BOOL connected = NO;
+
 @interface MuxAudioManager()
 
 @property(nonatomic, strong) AVAudioEngine *engine;
@@ -27,6 +29,8 @@
 
 @property(nonatomic, strong) NSMutableData *mixedData;
 
+@property(nonatomic, strong) AVAudioPlayerNode *aNode;
+
 @end
 
 @implementation MuxAudioManager
@@ -43,8 +47,8 @@
         _buffers = [@{} mutableCopy];
         _mixedPCMBuffers = [@[] mutableCopy];
         _mixNode = [[AVAudioMixerNode alloc] init];
-        [_engine attachNode:_mixNode];
-        [_engine connect:_mixNode to:_engine.mainMixerNode format:nil];
+//        [_engine attachNode:_mixNode];
+//        [_engine connect:_mixNode to:_engine.mainMixerNode format:nil];
 //        [_engine.mainMixerNode setOutputVolume:0];
         _installed = NO;
         
@@ -57,8 +61,53 @@
         _cache.countLimit = 5;
         
         _mixedData = [NSMutableData data];
+        
+        _aNode = [[AVAudioPlayerNode alloc] init];
+        [_engine attachNode:_aNode];
+        
     }
     return self;
+}
+
+
+- (void) method {
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"activate" ofType:@"pcm"];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    
+    AVAudioFormat *format = [[AVAudioFormat alloc] initWithCommonFormat:(AVAudioPCMFormatFloat32) sampleRate:44100 channels:1 interleaved:NO];
+    
+    /*
+     var PCMBuffer = AVAudioPCMBuffer(PCMFormat: audioFormat, frameCapacity: UInt32(data.length)/audioFormat.streamDescription.memory.mBytesPerFrame)
+     */
+    AVAudioPCMBuffer *buffer = [[AVAudioPCMBuffer alloc] initWithPCMFormat:format frameCapacity:(AVAudioFrameCount)data.length/format.streamDescription->mBytesPerFrame];
+    buffer.frameLength = buffer.frameCapacity;
+//    buffer.floatChannelData
+    const void *bytes = [data bytes];
+    float *bufferData = buffer.floatChannelData[0];
+    short* pOutShortBuf = (short*)bytes;
+    for (int i = 0; i < buffer.frameCapacity; i++) {
+        bufferData[i] = (float)(pOutShortBuf[i]/32767.0);
+    }
+    
+    if (connected == NO) {
+        [_engine connect:_aNode to:_engine.mainMixerNode format:format];
+        connected = YES;
+    }
+    
+    
+    [_aNode scheduleBuffer:buffer completionHandler:^{
+    }];
+    
+    if (!_engine.isRunning) {
+        [_engine prepare];
+        NSError *error;
+        BOOL success;
+        success = [_engine startAndReturnError:&error];
+        NSAssert(success, @"couldn't start engine, %@", [error localizedDescription]);
+        NSLog(@"Started Engine");
+    }
+    
+    [_aNode play];
 }
 
 
@@ -69,7 +118,7 @@
     NSString *audioFileName = [path.stringByDeletingPathExtension lastPathComponent];
     NSString *audioFileID = [[path.stringByDeletingPathExtension lastPathComponent] stringByAppendingString:timeLocal]; // Audio ID by audio file name.
     AVAudioPlayerNode *node = _nodesPool.firstObject;
-    AVAudioUnitEffect *compresspr = _compressorPool.firstObject;
+    AVAudioUnitEffect *compressor = _compressorPool.firstObject;
 //    AVAudioPCMBuffer *buffer = _buffers[audioFileName];
     AVAudioPCMBuffer *buffer = [_cache objectForKey:audioFileName];
     
@@ -102,8 +151,8 @@
         
     }
     
-    if (compresspr == nil) {
-        compresspr = [self createEffect];
+    if (compressor == nil) {
+        compressor = [self createEffect];
         
         
     } else {
@@ -124,14 +173,14 @@
     }
     
     
-    [_engine attachNode:compresspr];
+    [_engine attachNode:compressor];
     [_engine attachNode:node];
-    [_engine connect:node to:compresspr format:buffer.format];
-    [_engine connect:compresspr to:_mixNode format:buffer.format];
+    [_engine connect:node to:compressor format:buffer.format];
+    [_engine connect:compressor to:_mixNode format:buffer.format];
 //    [_engine connect:compresspr to:_mixNode format:buffer.format];
     
     __weak typeof(node) wNode = node;
-    __weak typeof(compresspr) wCom = compresspr;
+    __weak typeof(compressor) wCom = compressor;
     __weak typeof(self) wself = self;
     
     [node scheduleBuffer:buffer atTime:nil options:( loop ? AVAudioPlayerNodeBufferLoops : AVAudioPlayerNodeBufferInterruptsAtLoop) completionHandler:^{ // did play
@@ -161,7 +210,7 @@
     [node play];
     
     _playingNodes[audioFileID] = node;
-    _compressingNodes[audioFileID] = compresspr;
+    _compressingNodes[audioFileID] = compressor;
     
     return audioFileID;
 }
@@ -213,9 +262,12 @@
     if (_installed == YES) {return;}
     _installed = YES;
     __weak typeof(self) wself = self;
-    AVAudioFrameCount bufferSize = 44100 * 0.12;
+    AVAudioFrameCount bufferSize = 44100 * 0.1;
     [_mixNode installTapOnBus:0 bufferSize:bufferSize format:[_mixNode outputFormatForBus:0] block:^(AVAudioPCMBuffer * _Nonnull buffer, AVAudioTime * _Nonnull when) {
-        NSData *data = [NSData dataWithBytes:buffer.floatChannelData[0] length: buffer.frameLength * buffer.format.streamDescription->mBytesPerFrame / 2];
+        
+        NSLog(@"%@", buffer);
+        
+//        NSData *data = [NSData dataWithBytes:buffer.floatChannelData[0] length: buffer.frameLength * buffer.format.streamDescription->mBytesPerFrame / 2];
         
 //        NSData *aaa = [NSData dataWithBytesNoCopy:buffer.floatChannelData[0] length:buffer.frameLength * buffer.format.streamDescription->mBytesPerFrame];
 //        /*
@@ -246,9 +298,9 @@
 //        float value = 0;
         
         
-        const void *bytes = [data bytes];
-        float *bufferData = buffer.floatChannelData[0];
-        short* pOutShortBuf = (short*)bytes;
+//        const void *bytes = [data bytes];
+//        float *bufferData = buffer.floatChannelData[0];
+//        short* pOutShortBuf = (short*)bytes;
         
 //        for(int i = 0; i < bufferSize; i += 2) {
 //            value += fabsf(buffer.floatChannelData[0][i]);
@@ -262,19 +314,19 @@
 ////        float b = bufferData[i];
 //        NSLog(@"value = %f, db = %d, gain = %d, end = %f", value, db, needGain, pow(10, needGain/20.0));
         
-        for(int i=0;i<bufferSize;i++)
-        {
+//        for(int i=0;i<bufferSize;i++)
+//        {
 //            int32_t f = abs((int32_t)(bufferData[i] * 0.001 * pow(2, 32)));
 //            NSLog(@"b = %f, f = %d, db = %f",bufferData[i], f, 20*log10(f));
             
             
-            pOutShortBuf[i] = (short)(bufferData[i]*32767);
-        }
+//            pOutShortBuf[i] = (short)(bufferData[i]*32767);
+//        }
         
         
         
 //        [wself.mixedPCMBuffers addObject:data];
-        [wself.mixedData appendData:data];
+//        [wself.mixedData appendData:data];
     }];
 }
 

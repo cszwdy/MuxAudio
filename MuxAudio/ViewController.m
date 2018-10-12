@@ -28,30 +28,40 @@
     _items = @[
                @"foreverLove",
                @"Diamondboard_bgm",
+               @"Blowtheballoon_bgm",
                @"Breaktheice_balloonboom",
                @"Public_dimanond",
-               @"PlaytheXylophone_b1",
-               @"PlaytheXylophone_b2",
-               @"PlaytheXylophone_b3",
-               @"PlaytheXylophone_b4",
-               @"PlaytheXylophone_b5",
-               @"PlaytheXylophone_b6",
-               @"PlaytheXylophone_b7",
-               @"PlaytheXylophone_b8",
+//               @"PlaytheXylophone_b1",
+//               @"PlaytheXylophone_b2",
+//               @"PlaytheXylophone_b3",
+//               @"PlaytheXylophone_b4",
+//               @"PlaytheXylophone_b5",
+//               @"PlaytheXylophone_b6",
+//               @"PlaytheXylophone_b7",
+//               @"PlaytheXylophone_b8",
+               @"apple",
+               @"banana",
+               @"cat",
+               @"hallo",
+               @"what's this",
                ];
     
-    [_audioManager beganMixPCMBuffer];
+//    [_audioManager beganMixPCMBuffer];
+    [_audioManager method];
 }
 
 - (void)playByName:(NSString *)name loop:(BOOL)loop {
-    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"mp3"];
+    [_audioManager method];
     
-    __weak typeof(self) wself = self;
     
-    dispatch_queue_t globalDispatchQueueHight = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(self.queue, ^{
-        [wself.audioManager playAudioFileAt:path loop:loop];
-    });
+//    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"mp3"];
+//    
+//    __weak typeof(self) wself = self;
+//    
+//    dispatch_queue_t globalDispatchQueueHight = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//    dispatch_async(self.queue, ^{
+//        [wself.audioManager playAudioFileAt:path loop:loop];
+//    });
 }
 - (IBAction)stop:(id)sender {
     [_audioManager stopAll];
@@ -94,6 +104,7 @@
     
     NSDate *now2 = [NSDate date];
 //    NSLog(@"Prepare to play %@ is %@s",name, @([now2 timeIntervalSinceDate:now1]));
+    
 }
 
 
